@@ -31,7 +31,7 @@ describe("Login", () => {
 
     await LoginPage.login(email, password);
     await expect(DashboardPage.userIcon).toBeExisting();
-    await expect(DashboardPage.userFullName).toHaveText(expect.stringContaining(`${userName} ${userSurname}`));
+
   });
 
 

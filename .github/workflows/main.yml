@@ -11,6 +11,8 @@ jobs:
           node-version: 18
       - name: Install
         run: npm install
+      - name: Create logs directory
+        run: mkdir -p logs
       - name: Test
         run: |
           EMAIL=${{ secrets.EMAIL }} PASSWORD=${{ secrets.PASSWORD }} npx wdio run ./wdio.conf.js
