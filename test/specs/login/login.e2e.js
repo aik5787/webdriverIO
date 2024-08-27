@@ -18,7 +18,8 @@ let userId;
 describe("Login", () => {
   before(async () => {
     userId = await registarationApi.registerNewUser(userName, userSurname, email, password);
-    console.log('adminEmail', adminEmail);
+    
+    console.log('adminEmail', process.EMAIL);
   });
 
   after(async () => {
