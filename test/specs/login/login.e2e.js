@@ -19,7 +19,7 @@ describe("Login", () => {
   before(async () => {
     userId = await registarationApi.registerNewUser(userName, userSurname, email, password);
     
-    console.log('adminEmail', process.EMAIL);
+    console.log('adminEmail', process);
   });
 
   after(async () => {
