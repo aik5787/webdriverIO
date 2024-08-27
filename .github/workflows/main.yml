@@ -12,7 +12,7 @@ jobs:
         - name: Install
           run: npm install
         - name: Test
-          run: npx wdio run ./wdio.conf.js --headless EMAIL=${{ secrets.EMAIL }} PASSWORD=${{ secrets.PASSWORD}} 
+          run: npx wdio run ./wdio.conf.js --env EMAIL=${{ secrets.EMAIL }} --env PASSWORD=${{ secrets.PASSWORD}} 
         - uses: actions/upload-artifact@v1
           if: failure()
           with:
