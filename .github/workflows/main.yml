@@ -4,17 +4,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-        - uses: actions/setup-node@v3
-          with:
-            node-version: 18
-        - name: Install
-          run: npm install
-        - name: Test
-          run: npx wdio run ./wdio.conf.js --env EMAIL=${{ secrets.EMAIL }} --env PASSWORD=${{ secrets.PASSWORD}} 
-        - uses: actions/upload-artifact@v1
-          if: failure()
-          with:
-            name: logs
-            path: logs
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install
+        run: npm install
+      - name: Test
+        run: |
+          EMAIL=${{ secrets.EMAIL }} PASSWORD=${{ secrets.PASSWORD }} npx wdio run ./wdio.conf.js
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: logs
+          path: logs

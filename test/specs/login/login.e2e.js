@@ -18,12 +18,11 @@ let userId;
 describe("Login", () => {
   before(async () => {
     userId = await registarationApi.registerNewUser(userName, userSurname, email, password);
-    
-    console.log('adminEmail', process);
   });
 
   after(async () => {
     const adminAccessToken = await loginApi.login(adminEmail, adminPassword);
+    console.log("adminEmail", adminEmail);
     await deleteUser.deleteUser(userId, adminAccessToken);
 
   });
