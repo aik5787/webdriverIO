@@ -29,6 +29,7 @@ export const config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+    
     //
     // ============
     // Capabilities
@@ -45,18 +46,28 @@ export const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    // maxInstances: 2,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        browserName: 'chrome',   // or 'chromium'
-        'goog:chromeOptions': {
-            args: ['headless', 'disable-gpu']
+    capabilities: [
+        {
+            browserName: 'chrome',
+            'goog:chromeOptions': {
+                args: ['headless', 'disable-gpu']
+            },
+            maxInstances: 2
+        },
+        {
+            browserName: 'firefox',
+            'moz:firefoxOptions': {
+                args: ['-headless']
+            },
+            maxInstances: 2
         }
-    }],
+    ],
 
     //
     // ===================
@@ -129,6 +140,17 @@ export const config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     // reporters: ['dot'],
+    reporters: [
+        ['mochawesome', {
+          outputDir: './webdriverIo/reports',
+          outputFileFormat: function (opts) {
+            return `results-${opts.cid}.json`; 
+          },
+          overwrite: false,
+          html: false,
+          json: true,
+        }]
+      ],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/

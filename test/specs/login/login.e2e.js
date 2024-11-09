@@ -16,23 +16,21 @@ const userSurname = faker.internet.userName();
 let userId;
 
 describe("Login", () => {
-  before(async () => {
-    userId = await registarationApi.registerNewUser(userName, userSurname, email, password);
-  });
+  // before(async () => {
+  //   userId = await registarationApi.registerNewUser(userName, userSurname, email, password);
+  // });
 
-  after(async () => {
-    const adminAccessToken = await loginApi.login(adminEmail, adminPassword);
-    console.log("adminEmail", adminEmail);
-    await deleteUser.deleteUser(userId, adminAccessToken);
+  // after(async () => {
+  //   const adminAccessToken = await loginApi.login(adminEmail, adminPassword);
+  //   console.log("adminEmail", adminEmail);
+  //   await deleteUser.deleteUser(userId, adminAccessToken);
 
-  });
-  it("should login with valid credentials", async () => {
+  // });
+  it("should login with valid credentials @smoke", async () => {
     await LoginPage.open();
 
-    await LoginPage.login(email, password);
+    await LoginPage.login('tommy1@gmail.com', "qwerty123");
     await expect(DashboardPage.userIcon).toBeExisting();
 
   });
-
-
 });

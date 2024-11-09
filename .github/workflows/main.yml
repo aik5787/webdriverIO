@@ -15,7 +15,13 @@ jobs:
         run: mkdir -p logs
       - name: Test
         run: |
-          EMAIL=${{ secrets.EMAIL }} PASSWORD=${{ secrets.PASSWORD }} npx wdio run ./wdio.conf.js
+          EMAIL=${{ secrets.EMAIL }} PASSWORD=${{ secrets.PASSWORD }} npm run test:all:report
+      - name: Upload Mochawesome report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: ./webdriverIo/reports
       - uses: actions/upload-artifact@v1
         if: failure()
         with:

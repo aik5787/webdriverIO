@@ -9,7 +9,7 @@ class DashboardPage extends Page {
      * define selectors using getter methods
      */
     get userIcon () {
-        return $('.MuiToolbar-root [data-testid="PersonIcon"]');
+        return $$('[class*="MuiButtonBase-root MuiIconButton-root"]')[0];
     }
     get userFullName () {
         return $('h6');

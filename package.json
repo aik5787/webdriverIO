@@ -5,10 +5,21 @@
     "@faker-js/faker": "^8.4.1",
     "@wdio/cli": "^9.0.7",
     "@wdio/local-runner": "^9.0.7",
-    "@wdio/mocha-framework": "^9.0.6"
+    "@wdio/mocha-framework": "^9.0.6",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^6.0.1",
+    "wdio-mochawesome-reporter": "^6.1.1"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "test:all": "npx wdio run wdio.conf.js",
+    "test:smoke": "npx wdio run wdio.conf.js --mochaOpts.grep '@smoke'",
+    "clean-reports": "rm -rf ./webdriverIo/reports",
+    "merge-reports": "mochawesome-merge ./webdriverIo/reports/*.json > ./webdriverIo/reports/merged-report.json && marge ./webdriverIo/reports/merged-report.json -o ./webdriverIo/reports/html --inline",
+    "test:all:report": "npm-run-all --continue-on-error clean-reports test:all merge-reports",
+    "test:smoke:report": "npm-run-all --continue-on-error clean-reports test:smoke merge-reports"
   },
   "dependencies": {
     "axios": "^1.7.5",
