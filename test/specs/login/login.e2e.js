@@ -30,7 +30,7 @@ describe("Login", () => {
     await LoginPage.open();
 
     await LoginPage.login('tommy1@gmail.com', "qwerty123");
-    await expect(DashboardPage.userIco).toBeExisting();
+    await expect(DashboardPage.userIcon).toBeExisting();
 
   });
 });
