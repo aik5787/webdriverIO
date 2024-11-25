@@ -15,7 +15,7 @@ describe("Registration Negative scenario", () => {
     await browser.url("/auth/register");
   });
 
-    it.skip("Should not register with an already existing email account", async () => {
+    it("Should not register with an already existing email account", async () => {
       await registrationPage.registration(firstName, lastName, userCredentials.realtor.email, password);
 
       await expect(registrationPage.alertMssg).toBeExisting();

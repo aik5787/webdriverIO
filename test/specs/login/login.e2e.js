@@ -16,7 +16,7 @@ describe("Login", () => {
     await expect(dashboardPage.userIcon).toBeExisting();
   });
 
-  it.skip("Should log out", async () => {
+  it("Should log out", async () => {
     await dashboardPage.userIcon.click();
     // let logoutLink = await $('li=Logout')
     await dashboardPage.logoutLink.click();

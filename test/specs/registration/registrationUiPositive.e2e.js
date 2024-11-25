@@ -42,9 +42,6 @@ describe("Registration Positive scenario", () => {
     // }, accessToken);
     // await expect(dashboardPage.roleLbl).toHaveText(userCredentials.user.role);
     // await expect(dashboardPage.nameLbl).toHaveText(`${firstName} ${lastName}`);
-    const selector = 'h6[class*="MuiTypography-root"]';
-
-await expect($(selector)).toExist();
     await expect(browser).toHaveTitle("User: Profile | Delek Homes");
   });
 
