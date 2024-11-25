@@ -28,13 +28,14 @@ describe("Registration Positive scenario", () => {
     await browser.setupInterceptor();
 
     await registrationPage.registration(firstName, lastName, email, password);
-    // await browser.pause(3000);
+    await browser.pause(3000);
 
-    // const requests = await browser.getRequests();
-    // const request = requests.find((req) => req.url.includes("api/users/registration"));
+    const requests = await browser.getRequests();
+    const request = requests.find((req) => req.url.includes("api/users/registration"));
 
-    // const userId = request.response.body.user.id;
-    // await browser.sharedStore.set("userId", userId);
+    const userId = request.response.body.user.id;
+    await browser.sharedStore.set("userId", userId);
+    console.log("id", userId)
     // const accessToken = request.response.body.accessToken;
     // await browser.execute((token) => {
     //   localStorage.setItem("accessToken", token);
@@ -43,7 +44,7 @@ describe("Registration Positive scenario", () => {
     // await expect(dashboardPage.roleLbl).toHaveText(userCredentials.user.role);
     // await dashboardPage.nameLbl.waitForDisplayed({ timeout: 15000 });
     // await expect(dashboardPage.nameLbl).toHaveText(`${firstName} ${lastName}`);
-    // await expect(browser).toHaveTitle("User: Profile | Delek Homes");
+    await expect(browser).toHaveTitle("User: Profile | Delek Homes");
   });
 
 });
