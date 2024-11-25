@@ -22,7 +22,6 @@ describe("Registration Positive scenario", () => {
     const adminAccessToken = await loginApi.login(process.env.ADMINEMAIL, process.env.ADMINPASSWORD);
     const userId = await browser.sharedStore.get("userId");
     await deleteUserApi.deleteUser(userId, adminAccessToken);
-    await browser.sharedStore.set("userId",'');
   });
 
   it("Should register a new account via UI", async () => {

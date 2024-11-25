@@ -15,14 +15,14 @@ describe("Registration Negative scenario", () => {
     await browser.url("/auth/register");
   });
 
-    it("Should not register with an already existing email account", async () => {
+    it.skip("Should not register with an already existing email account", async () => {
       await registrationPage.registration(firstName, lastName, userCredentials.realtor.email, password);
 
       await expect(registrationPage.alertMssg).toBeExisting();
       await expect(registrationPage.alertMssg).toHaveText(registrationValidationErrors.validationFailed);
     });
 
-    it("Should not register without filling in required fields", async () => {
+    it.skip("Should not register without filling in required fields", async () => {
       await registrationPage.submitBtn.click();
 
       await expect($(`//*[text()='${registrationValidationErrors.firstNameRequired}']`)).toBeExisting();

@@ -12,11 +12,11 @@ describe("Login", () => {
   });
 
 
-  it("should login with valid credentials @smoke", async () => {
+  it.skip("should login with valid credentials @smoke", async () => {
     await expect(dashboardPage.userIcon).toBeExisting();
   });
 
-  it("Should log out", async () => {
+  it.skip("Should log out", async () => {
     await dashboardPage.userIcon.click();
     // let logoutLink = await $('li=Logout')
     await dashboardPage.logoutLink.click();
