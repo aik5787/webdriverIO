@@ -1,7 +1,7 @@
 import axios from "axios";
 import { config } from '../../wdio.conf.js'
 
-class DeleteApi {
+class DeleteUserApi {
     async deleteUser(userId, adminAccessToken) {
       try {
         await axios.delete(`${config.baseUrl}/api/users/${userId}`, {
@@ -16,4 +16,4 @@ class DeleteApi {
     }
   }
   
-  export default new DeleteApi();
+  export default new DeleteUserApi();
