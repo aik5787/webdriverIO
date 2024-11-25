@@ -1,5 +1,5 @@
 class RegistrationPage {
-    get firstNmInp() { return $('[name="firstName"]'); }
+  get firstNmInp() {return $('input[name="firstName"].MuiInputBase-input')}
     get lastNmInp() { return $('[name="lastName"]'); }
     get emailInp() { return $('[name="email"]'); }
     get passwordInp() { return $('[name="password"]'); }

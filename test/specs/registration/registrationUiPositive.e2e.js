@@ -27,7 +27,7 @@ describe("Registration Positive scenario", () => {
   it("Should register a new account via UI", async () => {
     await browser.setupInterceptor();
 
-    await registrationPage.registration(firstName, lastName, email, password);
+    await registrationPage.registration("John", lastName, email, password);
     await browser.pause(3000);
 
     const requests = await browser.getRequests();
