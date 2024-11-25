@@ -15,7 +15,7 @@ jobs:
         run: mkdir -p logs
       - name: Test
         run: |
-          EMAIL=${{ secrets.ADMINEMAIL }} PASSWORD=${{ secrets.ADMINPASSWORD }} npm run test:all:report
+          ADMINEMAIL=${{ secrets.ADMINEMAIL }} ADMINPASSWORD=${{ secrets.ADMINPASSWORD }} npm run test:all:report
       - name: Upload Mochawesome report
         if: always()
         uses: actions/upload-artifact@v4
