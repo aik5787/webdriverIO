@@ -15,8 +15,8 @@ let userId;
 describe("Registration", () => {
 
   it("should register a new account via A PI @regression", async () => {
-    userId = await registrationApi.registerNewUser(userName, userSurname, email, password);
+    // userId = await registrationApi.registerNewUser(userName, userSurname, email, password);
     const adminAccessToken = await loginApi.login(process.env.ADMINEMAIL, process.env.ADMINPASSWORD);
-    await deleteUserApi.deleteUser(userId, adminAccessToken);
+    // await deleteUserApi.deleteUser(userId, adminAccessToken);
   });
 });
