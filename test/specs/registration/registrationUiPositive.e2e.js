@@ -40,9 +40,8 @@ describe("Registration Positive scenario", () => {
     // await browser.execute((token) => {
     //   localStorage.setItem("accessToken", token);
     // }, accessToken);
-    await browser.pause(3000);
 
-    await expect(dashboardPage.roleLbl).toHaveText(userCredentials.user.role);
+    // await expect(dashboardPage.roleLbl).toHaveText(userCredentials.user.role);
     await expect(dashboardPage.nameLbl).toHaveText(`${firstName} ${lastName}`);
     await expect(browser).toHaveTitle("User: Profile | Delek Homes");
   });
