@@ -21,6 +21,7 @@ describe("Registration Positive scenario", () => {
   after(async () => {
     const adminAccessToken = await loginApi.login(process.env.ADMINEMAIL, process.env.ADMINPASSWORD);
     const userId = await browser.sharedStore.get("userId");
+    console.log("User ID retrieved from sharedStore:", userId);
     await deleteUserApi.deleteUser(userId, adminAccessToken);
   });
 
