@@ -8,13 +8,13 @@ dotenv.config();
 
 const email = faker.internet.email();
 const password = faker.internet.password();
-const userName = faker.internet.userName();
-const userSurname = faker.internet.userName();
+const userName = faker.internet.username();
+const userSurname = faker.internet.username();
 let userId;
 
 describe("Registration", () => {
 
-  it("should register a new account via API @regression", async () => {
+  it("should register a new account via A PI @regression", async () => {
     userId = await registrationApi.registerNewUser(userName, userSurname, email, password);
     const adminAccessToken = await loginApi.login(process.env.ADMINEMAIL, process.env.ADMINPASSWORD);
     await deleteUserApi.deleteUser(userId, adminAccessToken);

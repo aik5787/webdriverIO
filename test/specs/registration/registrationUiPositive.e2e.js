@@ -10,8 +10,8 @@ dotenv.config();
 
 const email = faker.internet.email();
 const password = faker.internet.password();
-const firstName = faker.internet.userName();
-const lastName = faker.name.lastName();
+const firstName = faker.internet.username();
+const lastName = faker.internet.username();
 
 describe("Registration Positive scenario", () => {
   beforeEach(async () => {

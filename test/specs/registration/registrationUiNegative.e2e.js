@@ -7,8 +7,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const password = faker.internet.password();
-const firstName = faker.internet.userName();
-const lastName = faker.name.lastName();
+const firstName = faker.internet.username();
+const lastName = faker.internet.username();
 
 describe("Registration Negative scenario", () => {
   beforeEach(async () => {

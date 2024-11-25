@@ -2,7 +2,7 @@
   "name": "webdriverio",
   "type": "module",
   "devDependencies": {
-    "@faker-js/faker": "^8.4.1",
+    "@faker-js/faker": "^9.2.0",
     "@wdio/cli": "^9.0.7",
     "@wdio/local-runner": "^9.0.7",
     "@wdio/mocha-framework": "^9.0.6",
