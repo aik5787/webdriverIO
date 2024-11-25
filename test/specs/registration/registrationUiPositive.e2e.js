@@ -18,11 +18,11 @@ describe("Registration Positive scenario", () => {
     await browser.url("/auth/register");
   });
 
-  // after(async () => {
-  //   const adminAccessToken = await loginApi.login(process.env.ADMINEMAIL, process.env.ADMINPASSWORD);
-  //   const userId = await browser.sharedStore.get("userId");
-  //   await deleteUserApi.deleteUser(userId, adminAccessToken);
-  // });
+  after(async () => {
+    const adminAccessToken = await loginApi.login(process.env.ADMINEMAIL, process.env.ADMINPASSWORD);
+    const userId = await browser.sharedStore.get("userId");
+    await deleteUserApi.deleteUser(userId, adminAccessToken);
+  });
 
   it("Should register a new account via UI", async () => {
     await browser.setupInterceptor();
